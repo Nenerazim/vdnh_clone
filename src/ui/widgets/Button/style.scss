@@ -1,0 +1,122 @@
+@import '../../assets/sass/variables/mixins';
+
+$root: '.ui-button';
+
+#{$root} {
+	display: inline-flex;
+	justify-content: center;
+	gap: 8px;
+	align-items: center;
+	border: none;
+	text-decoration: none;
+	cursor: pointer;
+
+	&:disabled {
+		opacity: 0.7;
+	}
+	&-sm {
+		padding: 4px 16px;
+		border-radius: 16px;
+		@include font18(400);
+		height: 32px;
+	}
+	&-md {
+		height: 37px;
+		border-radius: 16px;
+		@include font18(400);
+		padding: 8px 16px;
+	}
+	&-lg {
+		min-height: 46px;
+		border-radius: 16px;
+		@include font18(400);
+		padding: 10px 16px;
+
+		@media (max-width: 768px) {
+			height: fit-content;
+			font-size: 16px;
+		}
+
+		@media (max-width: 398px) {
+			padding: 8px 10px;
+		}
+	}
+	&-default {
+		background-color: rgb(var(--neutral_white));
+		color: rgb(var(--neutral_red));
+		transition: 0.25s;
+		&:not(:disabled) {
+			&:focus-visible,
+			&:active {
+				filter: brightness(80%);
+			}
+			&:hover {
+				background-color: rgb(var(--neutral_red));
+				color: rgb(var(--neutral_white));
+				transition: 0.3s;
+			}
+		}
+	}
+	&-primary {
+		background-color: rgb(var(--neutral_red));
+		color: rgb(var(--neutral_white));
+		transition: all 0.25s;
+
+		&:not(:disabled) {
+			&:focus-visible,
+			&:active {
+				filter: brightness(80%);
+			}
+
+			&:hover {
+				transition: all 0.25s;
+				filter: brightness(80%);
+			}
+		}
+	}
+	&-secondary {
+		background-color: rgb(var(--neutral_blue));
+		color: rgb(var(--neutral_white));
+		transition: all 0.25s;
+		&:not(:disabled) {
+			&:focus-visible,
+			&:active {
+				filter: brightness(80%);
+			}
+			&:hover {
+				transition: all 0.25s;
+				background-color: rgb(var(--color_dark_blue));
+			}
+		}
+	}
+	&-error {
+		background-color: rgb(var(--neutral_red));
+		color: rgb(var(--neutral_white));
+		&:not(:disabled) {
+			&:focus-visible,
+			&:active {
+				filter: brightness(80%);
+			}
+		}
+	}
+
+	&-none {
+		background-color: transparent;
+		color: rgb(var(--color_black));
+		outline: none;
+		&:not(:disabled) {
+			&:focus-visible {
+			}
+			&:active {
+				outline: none;
+			}
+		}
+	}
+	&.full {
+		width: 100%;
+		justify-content: center;
+	}
+}
+span {
+	text-align: center;
+}

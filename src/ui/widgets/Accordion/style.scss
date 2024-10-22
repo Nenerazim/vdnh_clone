@@ -1,0 +1,79 @@
+@import '../../assets/sass/variables/mixins';
+
+$root: '.ui-accordion';
+
+#{$root} {
+	$timer: 0.5s;
+
+	&__title-wrap {
+		display: flex;
+		gap: 5px;
+		align-items: center;
+		padding: 10px 0;
+		cursor: pointer;
+
+		&_position-icon {
+			flex-direction: row-reverse;
+		}
+	}
+
+	&__title {
+		flex-grow: 1;
+	}
+
+	&__icon {
+		transition: transform 0.5s ease;
+
+		&_rotate-rd {
+			transition: transform 0.5s ease;
+			transform: rotate(90deg);
+		}
+		&_rotate-ld {
+			transition: transform 0.5s ease;
+			transform: rotate(-90deg);
+		}
+	}
+
+	&__content {
+		max-height: 0;
+		transition:
+			max-height $timer ease,
+			padding $timer 0.1s ease;
+		overflow: hidden;
+		padding: 0;
+
+		&.show {
+			max-height: 500px;
+			transition:
+				max-height 2s ease,
+				padding $timer ease;
+			padding: 10px 0;
+		}
+	}
+
+	.mark {
+		position: relative;
+		width: 25px;
+		height: 25px;
+		transition: transform 0.5s ease;
+
+		&::before,
+		&::after {
+			position: absolute;
+			top: 50%;
+			width: 25px;
+			height: 1px;
+			content: '';
+			background: rgb(var(--neutral_black));
+		}
+
+		&::before {
+			transform: rotate(90deg);
+		}
+
+		&.rotate {
+			transition: transform 0.5s ease;
+			transform: rotate(45deg);
+		}
+	}
+}

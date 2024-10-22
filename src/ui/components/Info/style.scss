@@ -1,0 +1,84 @@
+@import '../../assets/sass/variables/mixins';
+@import '../../assets/sass/variables/colors';
+@import '../../assets/sass/variables/breakpoints';
+@import '../../assets/sass/transitions';
+
+.main {
+	justify-content: flex-start;
+	background: rgb(var(--neutral_white));
+	border-radius: 16px;
+	display: flex;
+	flex-direction: column;
+	gap: 32px;
+	padding: 22px;
+	@media (max-width: 768px) {
+		padding: 16px;
+	}
+
+	@media (max-width: $tablet-sm) {
+		gap: 12px;
+		padding: 8px;
+	}
+
+	.block-info {
+		display: flex;
+		flex-direction: column;
+		gap: 32px;
+		.info {
+			display: flex;
+			gap: 32px;
+			flex-direction: column;
+			.description {
+				@include font24(700);
+			}
+			.text {
+				@include font18(400, 26px);
+				font-family: 'Suisse Intl', sans-serif;
+
+				@media (max-width: $tablet-sm) {
+					@include font16(400, 23px);
+				}
+			}
+			.mark {
+				margin-right: 20px;
+				background: rgb(var(--neutral_red));
+				width: 8px;
+				min-width: 8px;
+				height: 8px;
+				min-height: 8px;
+				font-size: 16px;
+				color: rgb(var(--neutral_red));
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+		}
+	}
+	.expanded {
+		height: 100%;
+	}
+	Button {
+		@include font14(700);
+		flex-direction: row-reverse;
+		svg {
+			rotate: 180deg;
+		}
+	}
+	.button-wrapper {
+		position: relative;
+
+		&:before {
+			content: '';
+			position: absolute;
+			top: -80px;
+			height: 60px;
+			width: 100%;
+			background-image: linear-gradient(transparent 0, rgb(var(--neutral_white)) 100%);
+
+			@media (max-width: $tablet-sm) {
+				top: -60px;
+			}
+		}
+	}
+}

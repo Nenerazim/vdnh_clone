@@ -1,0 +1,41 @@
+@import '../../../assets/sass/variables/mixins';
+@import '../../../assets/sass/variables/colors';
+
+$root: '.tabs';
+#{$root} {
+	display: flex;
+	align-items: center;
+	gap: 24px;
+	overflow-x: auto;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+
+	@media (max-width: 768px) {
+		gap: 16px;
+	}
+
+	&__item {
+		&__btn {
+			padding: 8px 12px;
+			min-height: auto;
+			white-space: nowrap;
+			@include font16(500, 20px);
+
+			@media (max-width: 768px) {
+				@include font15(500, 17px);
+			}
+
+			@media (max-width: 398px) {
+				@include font14(500, 16px);
+			}
+		}
+		&.active {
+			#{$root}__item__btn {
+				color: rgb(var(--neutral_white));
+				background-color: rgb(var(--neutral_red));
+			}
+		}
+	}
+}

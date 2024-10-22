@@ -1,0 +1,85 @@
+@import '../../assets/sass/variables/colors';
+@import '../../assets/sass/variables/mixins';
+
+$root: '.ui-radio';
+
+#{$root} {
+	position: relative;
+	margin-bottom: 5px;
+
+	&-input {
+		opacity: 0;
+		position: absolute;
+	}
+
+	&-label {
+		position: relative;
+		display: flex;
+		align-items: center;
+		gap: 11px;
+		@include font14(400, 18px);
+		cursor: pointer;
+
+		@media (max-width: 768px) {
+			@include font13(400, 15px);
+		}
+
+		@media (max-width: 398px) {
+			@include font12(400, 14px);
+		}
+	}
+
+	[type='radio'] {
+		&:checked + #{$root}-label::before,
+		&:not(:checked) + #{$root}-label::before {
+			content: '';
+			display: inline-flex;
+			width: 16px;
+			min-width: 16px;
+			height: 16px;
+			border: 1px solid rgb(var(--grey_20));
+			border-radius: 50%;
+			outline: none;
+			-webkit-transition: all 0.2s;
+			transition: all 0.2s;
+		}
+		&:not(:checked) {
+			& + #{$root}-default::before {
+				border: 1px solid rgb(var(--grey_20));
+			}
+
+			& + #{$root}-primary::before {
+				border: 1px solid rgb(var(--neutral_red));
+			}
+
+			& + #{$root}-secondary::before {
+				border: 1px solid rgb(var(--neutral_blue));
+			}
+		}
+		&:checked {
+			& + #{$root}-default::after,
+			& + #{$root}-secondary::after,
+			& + #{$root}-primary::after {
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+				left: 3px;
+				content: '';
+				width: 10px;
+				min-width: 10px;
+				height: 10px;
+				border-radius: 50%;
+			}
+			& + #{$root}-default::after,
+			& + #{$root}-primary::after {
+				background-color: rgb(var(--neutral_red));
+			}
+			& + #{$root}-secondary::after {
+				background-color: rgb(var(--neutral_blue));
+			}
+			&:disabled + #{$root}-label {
+				opacity: 0.3;
+			}
+		}
+	}
+}

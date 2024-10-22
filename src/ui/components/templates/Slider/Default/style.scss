@@ -1,0 +1,36 @@
+.component-slider {
+	padding: 22px 0;
+	border-radius: 16px;
+	background: rgb(var(--neutral_white));
+	height: 468px;
+	@media (max-width: 640px) {
+		padding: 16px;
+	}
+	@media (max-width: 396px) {
+		padding: 8px;
+		height: 380px;
+	}
+
+	:deep(.slider-action) {
+		&.prev {
+			left: 2px;
+		}
+
+		&.next {
+			right: 2px;
+		}
+	}
+}
+
+.slider-container {
+	height: 424px;
+	@media (max-width: 396px) {
+		height: 340px;
+	}
+}
+.image {
+	border-radius: 16px;
+	object-fit: cover;
+	height: 100%;
+	width: 100%;
+}

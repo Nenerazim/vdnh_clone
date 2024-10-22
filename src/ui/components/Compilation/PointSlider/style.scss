@@ -1,0 +1,43 @@
+@import '@ui/assets/sass/variables/mixins';
+
+$root: '.point-slider';
+
+#{$root} {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+
+	&__list {
+		:deep(.swiper-slide) {
+			width: 311px;
+			height: 341px;
+
+			@media (max-width: 768px) {
+				width: 232px;
+				height: 293px;
+				margin-right: 8px !important;
+			}
+
+			@media (max-width: 398px) {
+				height: 262px;
+			}
+		}
+	}
+
+	&__btn {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+
+		&__text {
+			@include font16(500, 20px);
+			color: inherit;
+		}
+
+		&__icon {
+			min-width: 24px;
+			width: 24px;
+			height: 24px;
+		}
+	}
+}

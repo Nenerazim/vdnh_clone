@@ -1,0 +1,99 @@
+@import '../../../assets/sass/variables/mixins';
+
+$root: '.navigation-panel';
+$duration: 1s;
+#{$root} {
+	position: relative;
+	padding: 22px;
+	@include font18(500, 24px);
+	font-family: 'Suisse Intl', serif;
+	color: rgb(var(--neutral_red));
+	border-radius: 16px;
+	flex-wrap: nowrap;
+	background-color: rgb(var(--color_white));
+
+	@media (max-width: 768px) {
+		padding: 8px 0;
+		background-color: rgba(var(--color_white), 0);
+	}
+
+	@media (max-width: 398px) {
+		padding: 0;
+	}
+
+	.slider-container {
+		display: flex;
+		justify-content: space-between;
+		gap: 10px;
+		overflow: scroll hidden;
+		scrollbar-width: none;
+	}
+	:deep(.ui-slider) {
+		max-width: 90%;
+		@media (max-width: 768px) {
+			max-width: 100%;
+		}
+	}
+	:deep(.swiper-wrapper) {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	:deep(.swiper-slide) {
+		display: flex;
+		align-items: center;
+	}
+
+	.slide {
+		transition: all $duration;
+		padding: 9px 12px;
+		text-align: center;
+		white-space: nowrap;
+	}
+	.more-btn {
+		padding: 0;
+		min-height: 0;
+
+		&:hover {
+			filter: brightness(0.85);
+		}
+	}
+	a {
+		word-wrap: break-word;
+
+		&:hover {
+			filter: brightness(0.85);
+		}
+	}
+
+	.footer {
+		width: 100%;
+		position: absolute;
+		top: 130%;
+		left: 0;
+		outline: none;
+	}
+
+	.router-link-exact-active,
+	.active-btn {
+		color: rgb(var(--color_black));
+	}
+}
+.fade-enter-active,
+.fade-leave-active {
+	transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+	opacity: 0;
+}
+.promo {
+	border-radius: 16px;
+	background: rgb(var(--neutral_black));
+	color: rgb(var(--neutral_white));
+
+	.router-link-exact-active {
+		color: rgb(var(--neutral_white));
+	}
+}

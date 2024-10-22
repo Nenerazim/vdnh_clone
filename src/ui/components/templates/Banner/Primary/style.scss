@@ -1,0 +1,48 @@
+@import '../../../../assets/sass/variables/mixins';
+@import '../../../../assets/sass/variables/colors';
+
+$root: '.banner';
+#{$root} {
+	background-color: rgb(var(--neutral_white));
+	padding: 22px;
+	border-radius: 16px;
+	display: flex;
+	flex-direction: column;
+
+	.mini-info {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		padding: 16px;
+		position: relative;
+		width: 334px;
+		height: 424px;
+		z-index: 1;
+		border-radius: 16px;
+		gap: 8px;
+
+		.banner-img {
+			border-radius: 16px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			z-index: -1;
+		}
+		.banner-title {
+			color: rgb(var(--neutral_white));
+			@include font24(700);
+			font-family: 'Suisse Intl', serif;
+		}
+	}
+
+	@media (max-width: 768px) {
+		padding: 16px;
+	}
+
+	@media (max-width: 398px) {
+		padding: 8px;
+	}
+}

@@ -1,0 +1,89 @@
+@import '../../assets/sass/variables/mixins';
+
+$root: '.ui-slider';
+
+#{$root} {
+	display: flex;
+	position: relative;
+	align-items: center;
+	cursor: pointer;
+
+	.swiper {
+		width: 100%;
+		height: 100%;
+	}
+	.slider-action {
+		display: block;
+		box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.05);
+		border-radius: 16px;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		z-index: 9;
+		.ui-button {
+			min-height: 40px;
+		}
+
+		svg {
+			pointer-events: none;
+		}
+
+		&.prev {
+			left: -22px;
+
+			@media (max-width: 768px) {
+				left: -14px;
+			}
+
+			@media (max-width: 398px) {
+				left: -6px;
+			}
+		}
+
+		&.next {
+			right: -22px;
+
+			.arrow-btn {
+				rotate: 180deg;
+			}
+
+			@media (max-width: 768px) {
+				right: -14px;
+			}
+
+			@media (max-width: 398px) {
+				right: -6px;
+			}
+		}
+
+		.arrow-btn {
+			padding: 8px;
+			height: fit-content;
+
+			&:hover,
+			&:active {
+				:deep(svg) {
+					fill: rgb(var(--color_white));
+				}
+			}
+		}
+
+		&-disabled {
+			.arrow-btn {
+				:deep(svg) {
+					fill: rgb(var(--grey_20));
+				}
+
+				&:hover,
+				&:active {
+					background-color: rgb(var(--color_white));
+					cursor: not-allowed;
+
+					:deep(svg) {
+						fill: rgb(var(--grey_20));
+					}
+				}
+			}
+		}
+	}
+}

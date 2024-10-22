@@ -1,0 +1,139 @@
+@import '../../../../assets/sass/variables/mixins';
+@import '../../../../assets/sass/variables/colors';
+@import '../../../../assets/sass/variables/breakpoints';
+
+.main {
+	background: rgb(var(--neutral_white));
+	border-radius: 16px;
+	display: flex;
+	flex-direction: column;
+	gap: 32px;
+	padding: 22px;
+
+	@media (max-width: $mobile) {
+		gap: 12px;
+	}
+}
+
+.slider {
+	padding: 12px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	gap: 12px;
+	position: relative;
+	min-height: 356px;
+
+	.slider-title {
+		font-family: 'VDNHLebedev2', sans-serif;
+		color: rgb(var(--neutral_white));
+		@include font36();
+		flex-grow: 1;
+
+		@media (max-width: $tablet-sm) {
+			@include font26();
+		}
+	}
+
+	.slider-text {
+		color: rgb(var(--neutral_white));
+		font-family: 'Suisse Intl', serif;
+		@include font18();
+	}
+
+	.slider-background-image {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		-o-object-fit: cover;
+		object-fit: cover;
+		z-index: -1;
+		border-radius: 18px;
+	}
+}
+
+.categories-list {
+	display: flex;
+	gap: 8px;
+	flex-wrap: wrap;
+
+	.category {
+		border-radius: 16px;
+		border: 1px solid rgb(var(--neutral_red));
+		@include font16();
+		color: rgb(var(--neutral_black));
+		display: flex;
+		align-items: center;
+		padding: 9px 12px;
+		gap: 8px;
+		transition: 0.3s;
+		cursor: pointer;
+
+		&:hover {
+			border: 1px solid rgba(var(--neutral_red), 0.5);
+		}
+
+		&.active {
+			color: rgb(var(--neutral_white));
+			background: rgb(var(--neutral_red));
+		}
+
+		@media (max-width: $tablet-sm) {
+			color: rgb(var(--neutral_white));
+			border: none;
+		}
+
+		.category-img {
+			width: 18px;
+			height: 18px;
+			border-radius: 50%;
+			object-fit: cover;
+		}
+	}
+}
+
+.hide-mobile {
+	@media (max-width: $tablet-sm) {
+		display: none;
+	}
+}
+
+.view-mobile {
+	display: none;
+	@media (max-width: $tablet-sm) {
+		display: flex;
+	}
+}
+
+.image-box {
+	position: relative;
+	height: 128px;
+	overflow: hidden;
+	border-radius: 16px;
+
+	@media (max-width: 398px) {
+		height: 200px;
+	}
+}
+
+.image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+}
+
+.info {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+	font-family: 'Suisse Intl', serif;
+
+	.text {
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
+	}
+}

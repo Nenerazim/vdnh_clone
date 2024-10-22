@@ -1,0 +1,149 @@
+@import '../../../../assets/sass/variables/colors';
+@import '../../../../assets/sass/variables/mixins';
+@import '../../../../assets/sass/variables/breakpoints';
+
+.contacts {
+	display: grid;
+	grid-template-columns: 35% 63%;
+	gap: 24px;
+	padding: 22px;
+	background: rgb(var(--neutral_white));
+
+	@media (max-width: $laptop) {
+		gap: 37px;
+	}
+
+	@media (max-width: $tablet) {
+		grid-template-rows: auto;
+		grid-template-columns: 100%;
+		gap: 16px;
+		padding: 16px;
+	}
+}
+
+.info {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+	border-radius: 16px;
+
+	@media (max-width: $tablet) {
+		gap: 16px;
+	}
+
+	&__acc {
+		transition: background-color 0.8s ease;
+		padding: 0 22px;
+		border-radius: 16px;
+
+		@media (max-width: $tablet) {
+			padding: 0 16px;
+		}
+
+		&_open {
+			background-color: rgb(var(--grey_5));
+			transition: background-color 0.8s ease;
+		}
+
+		:deep(.show) {
+			padding: 0;
+
+			@media (max-width: $tablet) {
+				padding: 10px 0;
+			}
+		}
+
+		:deep(.ui-accordion__icon_rotate-rd) {
+			transform: none;
+
+			@media (max-width: $tablet) {
+				transform: rotate(90deg);
+			}
+		}
+	}
+}
+
+.accordion-content {
+	display: none;
+	flex-direction: column;
+	gap: 24px;
+
+	@media (max-width: $tablet) {
+		gap: 16px;
+	}
+
+	@media (max-width: $mobile) {
+		gap: 8px;
+	}
+
+	&_tablet {
+		@media (max-width: $tablet) {
+			display: flex;
+		}
+	}
+
+	&_laptop {
+		display: flex;
+		border-radius: 16px;
+		background-color: rgb(var(--grey_5));
+		height: fit-content;
+		padding: 22px;
+
+		@media (max-width: $tablet) {
+			display: none;
+		}
+	}
+
+	&__desc {
+		color: rgb(var(--neutral_red));
+
+		:deep(span) {
+			text-align: left !important;
+		}
+	}
+
+	&__btns {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 12px;
+	}
+}
+
+.communication-methods {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+
+	@media screen and (max-width: $tablet) {
+		gap: 8px;
+	}
+
+	&__row {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		@media screen and (max-width: $tablet) {
+			gap: 10px;
+		}
+	}
+
+	&__title {
+		width: 50%;
+		display: inline-flex;
+		gap: 10px;
+
+		@media screen and (max-width: $mobile) {
+			width: fit-content;
+		}
+	}
+
+	&__desc {
+		width: 50%;
+		font-family: 'VDNHLebedev2', sans-serif;
+
+		@media screen and (max-width: $mobile) {
+			width: fit-content;
+		}
+	}
+}

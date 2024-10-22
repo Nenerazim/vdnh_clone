@@ -1,0 +1,114 @@
+@import '../../assets/sass/variables/_colors.scss';
+@import '../../assets/sass/variables/_mixins.scss';
+
+$root: '.routesBuilding';
+$duration: 1s;
+
+#{$root} {
+	background: rgb(var(--neutral_white));
+	border-radius: 16px;
+	padding: 22px;
+	display: flex;
+	flex-direction: column;
+	gap: 32px;
+	@media (max-width: 768px) {
+		padding: 16px;
+		gap: 16px;
+	}
+	@media (max-width: 396px) {
+		padding: 8px;
+		gap: 8px;
+	}
+	&-search {
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
+		@media (max-width: 396px) {
+			gap: 12px;
+		}
+		#{$root}-input {
+			fill: rgb(var(--neutral_red));
+			display: flex;
+			flex-wrap: nowrap;
+			flex-grow: 1;
+		}
+
+		#{$root}-blockInfo {
+			display: flex;
+			gap: 32px;
+			flex-wrap: wrap;
+			@include font16(500);
+			@media (max-width: 396px) {
+				gap: 16px;
+			}
+		}
+
+		#{$root}-startRoute {
+			display: flex;
+			gap: 8px;
+			flex-wrap: wrap;
+
+			.brick {
+				border: 1px solid rgb(var(--neutral_white));
+				padding: 8px 12px;
+				display: flex;
+				gap: 8px;
+				@include font18(500);
+				cursor: pointer;
+				.icon {
+					fill: rgb(var(--neutral_red));
+				}
+			}
+			.active {
+				border-radius: 16px;
+				border: 1px solid rgb(var(--neutral_red));
+			}
+
+			.show-more-btn {
+				margin-left: auto;
+				display: flex;
+				flex-direction: row-reverse;
+				@include font16(500, 20px);
+				min-height: fit-content;
+				padding: 0;
+
+				&:hover {
+					color: rgba(var(--color_black), 0.8);
+
+					:deep(svg) {
+						fill: rgba(var(--color_black), 0.8);
+					}
+				}
+			}
+		}
+	}
+	&-slider {
+		.slider-container {
+			width: 311px;
+			display: flex;
+			flex-direction: column;
+			padding: 8px;
+			gap: 8px;
+			align-items: flex-start;
+			text-align: start;
+			img {
+				object-fit: cover;
+				width: 295px;
+				height: 206px;
+				border-radius: 8px;
+			}
+			.type {
+				@include font14(500);
+				color: rgb(var(--neutral_red));
+			}
+			.name {
+				@include font18();
+				height: 60px;
+			}
+			.time {
+				@include font14();
+				color: rgb(var(--grey_30));
+			}
+		}
+	}
+}

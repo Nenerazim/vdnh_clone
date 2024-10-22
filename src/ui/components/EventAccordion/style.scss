@@ -1,0 +1,93 @@
+@import '../../assets/sass/variables/mixins';
+@import '../../assets/sass/variables/colors';
+@import '../../assets/sass/variables/breakpoints';
+
+.accordion {
+	padding: 22px;
+	border-radius: 16px;
+	background: rgb(var(--neutral_white));
+	display: flex;
+	flex-direction: column;
+
+	h1 {
+		margin-bottom: 32px;
+
+		@media (max-width: $tablet-sm) {
+			margin-bottom: 22px;
+		}
+	}
+
+	span {
+		font-family: 'Suisse Intl', serif;
+		margin-bottom: 15px;
+	}
+
+	.box-ticket {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+
+		.ticket {
+			padding: 10px;
+			display: flex;
+			flex-direction: column;
+			@include font18();
+			font-family: Suisse Intl;
+
+			@media (max-width: $tablet-sm) {
+				@include font16();
+			}
+
+			&.active {
+				background: rgb(var(--grey_5));
+			}
+
+			.info {
+				display: grid;
+				grid-template-columns: 1fr 1fr 25px;
+				width: 100%;
+				cursor: pointer;
+			}
+
+			.mark {
+				position: relative;
+				width: 25px;
+				height: 25px;
+				transition: transform 0.5s ease;
+
+				&::before,
+				&::after {
+					position: absolute;
+					top: 50%;
+					width: 25px;
+					height: 1px;
+					content: '';
+					background: rgb(var(--neutral_black));
+				}
+
+				&::before {
+					transform: rotate(90deg);
+				}
+
+				&.rotate {
+					transition: transform 0.5s ease;
+					transform: rotate(135deg);
+				}
+			}
+
+			.ticket-info {
+				max-height: 0;
+				transition: all 0.5s ease;
+				overflow: hidden;
+				@include font16(400, 23px);
+				margin-top: 0;
+
+				&.show {
+					max-height: 500px;
+					transition: max-height 0.5s ease;
+					margin-top: 25px;
+				}
+			}
+		}
+	}
+}

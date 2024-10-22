@@ -1,0 +1,252 @@
+@import '../../../../assets/sass/variables/_colors.scss';
+@import '../../../../assets/sass/variables/_mixins.scss';
+.content-block {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 32px;
+	padding: 22px;
+	background: rgb(var(--neutral_white));
+	border-radius: 12px;
+	font-family: 'Suisse Intl', serif;
+}
+
+.section-description {
+	font-family: inherit;
+}
+
+.collections-grid {
+	width: 100%;
+	background: rgb(var(--neutral_white));
+	border-radius: 12px;
+	display: grid;
+	grid-template-rows: repeat(7, 1fr);
+	grid-template-columns: repeat(10, 1fr);
+	gap: 16px 12px;
+	.collection-item {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		min-height: 231px;
+		padding: 16px;
+		position: relative;
+		border-radius: 12px;
+		overflow: hidden;
+		grid-column: auto / span 4;
+		grid-row: auto/ span 2;
+		cursor: pointer;
+		animation: 0.7s show ease;
+		@keyframes show {
+			from {
+				opacity: 0;
+			}
+			to {
+				opacity: 1;
+			}
+		}
+
+		&.big {
+			grid-column: auto / span 5;
+			grid-row: auto/ span 3;
+			.item-title {
+				@include font32(400);
+			}
+			.item-content {
+				@include font24(500, 30px);
+			}
+		}
+		&.max {
+			grid-column: auto / span 6;
+			grid-row: auto/ span 4;
+
+			.item-title {
+				@include font54(400);
+			}
+			.item-content {
+				@include font32(400);
+			}
+		}
+		.item-title {
+			font-family: 'VDNHLebedev2', sans-serif;
+			color: rgb(var(--neutral_white));
+			z-index: 3;
+			overflow: hidden;
+			display: -webkit-box;
+			-webkit-line-clamp: 3;
+			-webkit-box-orient: vertical;
+		}
+		.item-content {
+			color: rgb(var(--neutral_white));
+			@include font18(400, 26px);
+			z-index: 3;
+			display: flex;
+			gap: 7px;
+		}
+		.img-wrapper {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 1;
+
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+
+			&::before {
+				content: '';
+				position: absolute;
+				background: rgba(0, 0, 0, 0.2);
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				z-index: 2;
+			}
+
+			&::after {
+				display: none;
+				content: '';
+				position: absolute;
+				background: rgba(0, 0, 0, 0.45);
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				z-index: 2;
+			}
+		}
+
+		&:hover {
+			.img-wrapper::after {
+				display: block;
+			}
+		}
+	}
+}
+
+.show-more-btn {
+	display: flex;
+	flex-direction: row-reverse;
+	@include font16(500, 20px);
+	min-height: fit-content;
+	padding: 0;
+
+	&:hover {
+		color: rgba(var(--color_black), 0.8);
+
+		:deep(svg) {
+			fill: rgba(var(--color_black), 0.8);
+		}
+	}
+}
+
+@media (max-width: 1024px) {
+	.collections-grid {
+		.collection-item {
+			grid-column: auto / span 5;
+
+			&.max {
+				grid-column: auto / span 5;
+
+				.item-content {
+					@include font24(400, 30px);
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.content-block {
+		padding: 16px;
+		gap: 16px;
+	}
+
+	.title {
+		@include font32(400, 38px);
+	}
+
+	.section-description {
+		@include font17(400, 24px);
+	}
+
+	.collections-grid {
+		grid-template-rows: repeat(4, 1fr);
+		.collection-item {
+			.item-title {
+				@include font32(400, 38px);
+			}
+			.item-content {
+				@include font17(400, 24px);
+			}
+
+			&.big,
+			&.max {
+				.item-title {
+					@include font32(400, 38px);
+				}
+
+				.item-content {
+					@include font17(400, 24px);
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 640px) {
+	.collections-grid {
+		.collection-item {
+			min-height: 180px;
+			grid-column: auto / span 5;
+			grid-row: auto/ span 2;
+			.item-title {
+				@include font20(400);
+			}
+			.item-content {
+				@include font12(500, 30px);
+			}
+
+			&.big,
+			&.max {
+				grid-column: auto / span 10;
+				grid-row: auto/ span 1;
+				.item-title {
+					@include font26(400);
+				}
+				.item-content {
+					@include font16(500, 30px);
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 398px) {
+	.content-block {
+		padding: 8px;
+		gap: 8px;
+	}
+	.collections-grid {
+		.collection-item {
+			min-height: 150px;
+			padding: 12px;
+		}
+	}
+
+	.title {
+		@include font24(400, 31px);
+	}
+
+	.section-description {
+		@include font16(400, 23px);
+	}
+
+	.slider-wrapper {
+		display: block;
+	}
+}

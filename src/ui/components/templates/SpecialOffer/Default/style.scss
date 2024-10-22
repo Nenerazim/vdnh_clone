@@ -1,0 +1,62 @@
+@import '../../../../assets/sass/variables/mixins';
+@import '../../../../assets/sass/variables/colors';
+
+$root: '.special-offers';
+
+#{$root} {
+	display: flex;
+	flex-direction: column;
+	background: url('/images/SpecialOffers/bubbles.png') rgb(var(--neutral_red));
+	padding: 22px;
+	border-radius: 16px;
+	gap: 32px;
+	color: rgb(var(--color_white));
+
+	@media (max-width: 398px) {
+		:deep(.slider-action) {
+			display: none;
+		}
+	}
+	&__header {
+		display: flex;
+		flex-direction: column;
+		gap: 14px;
+
+		.description {
+			font-family: 'Suisse Intl', serif;
+		}
+	}
+
+	.ui-slider {
+		height: 296px;
+	}
+
+	@media (max-width: 768px) {
+		padding: 16px;
+
+		.title {
+			font-size: 32px;
+		}
+	}
+
+	@media (max-width: 398px) {
+		padding: 8px;
+		gap: 12px;
+
+		#{$root}__header {
+			gap: 6px;
+
+			.title {
+				@include font26(400, 31px);
+			}
+
+			.description {
+				@include font16(400, 23px);
+			}
+		}
+
+		.ui-slider {
+			height: 227px;
+		}
+	}
+}

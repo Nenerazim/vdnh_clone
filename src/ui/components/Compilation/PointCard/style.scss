@@ -1,0 +1,72 @@
+@import '@ui/assets/sass/variables/mixins';
+
+$root: '.point-card';
+
+#{$root} {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	width: 100%;
+	height: 100%;
+	padding: 8px;
+	color: rgb(var(--color_black));
+	background-color: rgb(var(--color_white));
+
+	&__poster {
+		width: 100%;
+		height: 206px;
+		border-radius: 16px;
+		overflow: hidden;
+
+		@media (max-width: 768px) {
+			height: 158px;
+		}
+
+		@media (max-width: 398px) {
+			height: 127px;
+		}
+
+		&__img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	&__note {
+		font-family: inherit;
+		@include font14(500, 16px);
+		color: rgb(var(--color_red));
+		text-transform: lowercase;
+	}
+
+	&__title {
+		flex: 1;
+		@include font18(400, 28px);
+		display: -webkit-box;
+		-webkit-line-clamp: 2; /* number of lines to show */
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+
+		@media (max-width: 768px) {
+			@include font17(400, 29px);
+		}
+
+		@media (max-width: 398px) {
+			@include font16(400, 29px);
+		}
+	}
+
+	&__time {
+		@include font14(400, 18px);
+		color: rgb(var(--color_light_grey));
+
+		@media (max-width: 768px) {
+			@include font13(400, 15px);
+		}
+
+		@media (max-width: 398px) {
+			@include font12(400, 14px);
+		}
+	}
+}

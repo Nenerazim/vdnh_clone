@@ -1,0 +1,77 @@
+@import '../../assets/sass/variables/mixins';
+@import '../../assets/sass/variables/colors';
+
+$root: '.ui-input';
+
+#{$root} {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	width: 100%;
+	height: fit-content;
+
+	&-label {
+	}
+	&-box {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+		height: fit-content;
+		background-color: inherit;
+		outline: none;
+		border-radius: 12px;
+		@include font15(400);
+		padding: 8px 12px;
+	}
+	&-default {
+		border: 1px solid rgb(var(--grey_20));
+	}
+	&-none {
+		border: none;
+	}
+	&-primary {
+		border: 1px solid rgb(var(--neutral_red));
+	}
+	&-secondary {
+		border: 1px solid rgb(var(--neutral_blue));
+	}
+	&-input {
+		@include font15();
+		display: flex;
+		flex: 1;
+		&::placeholder {
+			color: rgb(var(--grey_20));
+		}
+		&:disabled {
+			opacity: 0.3;
+		}
+		&:not(:placeholder-shown) + #{$root}-action {
+			opacity: 1;
+		}
+	}
+	&-action {
+		width: 16px;
+		opacity: 0;
+	}
+	&-actionpass {
+		width: 16px;
+	}
+
+	@media (max-width: 1024px) {
+		#{$root}-input {
+			@include font14(400, 18px);
+		}
+	}
+
+	@media (max-width: 768px) {
+		#{$root}-input {
+			@include font13(400, 15px);
+		}
+	}
+
+	@media (max-width: 398px) {
+		#{$root}-input {
+			@include font12(400, 14px);
+		}
+	}
+}

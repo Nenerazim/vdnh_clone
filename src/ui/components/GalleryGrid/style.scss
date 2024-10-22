@@ -1,0 +1,110 @@
+@import '../../assets/sass/variables/mixins';
+@import '../../assets/sass/variables/colors';
+
+$root: '.gallery';
+#{$root} {
+	display: flex;
+	flex-direction: column;
+	gap: 32px;
+	background: rgb(var(--neutral_white));
+	border-radius: 16px;
+	padding: 22px;
+	@media (max-width: 768px) {
+		gap: 16px;
+		padding: 16px;
+	}
+	@media (max-width: 398px) {
+		gap: 8px;
+		padding: 8px;
+	}
+	&-filter {
+		display: flex;
+		gap: 24px;
+		#{$root}-category,
+		#{$root}-year {
+			padding: 8px 12px;
+			display: flex;
+			flex-direction: column;
+			width: 150px;
+			gap: 16px;
+			position: relative;
+			.boxShowBtn {
+				display: flex;
+				gap: 8px;
+				@include font18();
+			}
+			.tag {
+				width: 150px;
+				max-height: 0;
+				transition:
+					max-height 1s ease,
+					padding 3s ease;
+				position: absolute;
+				top: 32px;
+				background: rgb(var(--neutral_white));
+				border-radius: 16px;
+				gap: 16px;
+				@include font18();
+				z-index: 1;
+				padding: 0;
+				overflow: hidden;
+			}
+			.active {
+				max-height: 120px;
+				transition:
+					max-height 1s ease,
+					padding 0.1s ease;
+				overflow: hidden;
+				padding: 8px;
+			}
+		}
+	}
+	&-container {
+		gap: 16px;
+		display: grid;
+		grid-template-columns: repeat(12, 1fr);
+		#{$root}-brick {
+			grid-column: auto / span 3;
+			border-radius: 16px;
+			display: flex;
+			flex-direction: column;
+			gap: 8px;
+			padding: 8px;
+			@include font14();
+			@media (max-width: 1366px) {
+				grid-column: auto / span 4;
+			}
+			@media (max-width: 1042px) {
+				grid-column: auto / span 6;
+			}
+			@media (max-width: 600px) {
+				grid-column: auto / span 12;
+			}
+			img {
+				border-radius: 16px;
+				aspect-ratio: 16/9;
+			}
+		}
+		#{$root}-brickType {
+			color: rgb(var(--neutral_red));
+		}
+		#{$root}-brickDay {
+			color: rgb(var(--color_light_grey));
+		}
+	}
+}
+.show-more-btn {
+	display: flex;
+	flex-direction: row-reverse;
+	@include font16(500, 20px);
+	min-height: fit-content;
+	padding: 0;
+
+	&:hover {
+		color: rgba(var(--color_black), 0.8);
+
+		:deep(svg) {
+			fill: rgba(var(--color_black), 0.8);
+		}
+	}
+}

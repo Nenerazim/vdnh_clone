@@ -1,0 +1,136 @@
+@import '../../../../assets/sass/variables/_colors.scss';
+@import '../../../../assets/sass/variables/_mixins.scss';
+$root: '.theme-routes';
+
+#{$root} {
+	background-color: rgb(var(--neutral_white));
+	border-radius: 16px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 32px;
+	padding: 22px;
+	font-family: 'Suisse Intl', serif;
+
+	.info {
+		font-family: inherit;
+		@include font18();
+	}
+
+	.grid-routes {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 32px;
+	}
+	.brick {
+		padding: 16px;
+		display: flex;
+		gap: 16px;
+		align-items: center;
+		width: 100%;
+	}
+	.image {
+		display: block;
+		width: 214px;
+		height: 253px;
+		min-width: 214px;
+		max-width: 250px;
+		object-fit: cover;
+		mask-image: url('../../../../assets/icons/mask-route.svg');
+		mask-repeat: no-repeat;
+		mask-size: 100%;
+		mask-position: 50%;
+	}
+	.brick-info {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		font-family: 'Suisse Intl', serif;
+	}
+
+	.time {
+		@include font16(500, 20px);
+		color: rgb(var(--neutral_red));
+	}
+	.show-me-btn {
+		display: flex;
+		flex-direction: row-reverse;
+		@include font16(500, 20px);
+	}
+	@media (max-width: 1024px) {
+		.brick-title {
+			@include font18(700, 24px);
+		}
+	}
+
+	@media (max-width: 900px) {
+		.grid-routes {
+			gap: 16px;
+		}
+
+		.image {
+			width: 165px;
+			height: 195px;
+			min-width: 165px;
+		}
+
+		.brick-title {
+			@include font17(700, 22px);
+		}
+	}
+
+	@media (max-width: 768px) {
+		padding: 16px;
+		gap: 16px;
+
+		.title {
+			@include font32(400, 38px);
+		}
+
+		.info {
+			@include font17(400, 24px);
+		}
+
+		.show-me-btn {
+			@include font15(500, 17px);
+		}
+	}
+
+	@media (max-width: 700px) {
+		.grid-routes {
+			grid-template-columns: repeat(1, 1fr);
+			gap: 12px;
+		}
+	}
+
+	@media (max-width: 398px) {
+		padding: 8px;
+		gap: 12px;
+
+		.title {
+			@include font26(400, 31px);
+		}
+
+		.info {
+			@include font16(400, 23px);
+		}
+
+		.brick-title {
+			@include font20(700, 23px);
+		}
+
+		.image {
+			width: 109px;
+			height: 127px;
+			min-width: 109px;
+		}
+
+		.show-me-btn {
+			@include font14(500, 16px);
+		}
+
+		:deep(.slider-action) {
+			display: none;
+		}
+	}
+}

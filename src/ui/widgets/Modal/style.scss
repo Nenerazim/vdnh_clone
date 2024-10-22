@@ -1,0 +1,37 @@
+@import '../../assets/sass/variables/mixins';
+
+$root: '.modal';
+
+#{$root} {
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	max-width: 1336px;
+	height: fit-content;
+	max-height: 100vh;
+	overflow-y: auto;
+	border-radius: 16px;
+	outline: none;
+
+	&::backdrop {
+		background-color: rgba(0, 0, 0, 0.2);
+	}
+
+	.close-btn {
+		position: absolute;
+		top: 16px;
+		right: 16px;
+		cursor: pointer;
+		transition: 0.5s;
+
+		@media (max-width: 398px) {
+			top: 8px;
+			right: 8px;
+		}
+
+		&:hover {
+			transform: rotate(180deg);
+		}
+	}
+}

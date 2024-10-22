@@ -1,0 +1,169 @@
+@import '../../assets/sass/variables/_colors.scss';
+@import '../../assets/sass/variables/_mixins.scss';
+
+$root: '.eventError';
+
+#{$root} {
+	padding: 22px;
+	gap: 32px;
+	border-radius: 16px;
+	display: flex;
+	flex-direction: column;
+	background: rgb(var(--neutral_white));
+
+	@media (max-width: 768px) {
+		padding: 16px;
+		gap: 16px;
+	}
+
+	@media (max-width: 398px) {
+		padding: 8px;
+		gap: 8px;
+	}
+	&-eventBox {
+		display: grid;
+		grid-template-columns: repeat(12, 1fr);
+		gap: 16px;
+		.brick {
+			grid-column: auto / span 3;
+			display: flex;
+			flex-direction: column;
+			padding: 8px;
+			border-radius: 16px;
+			animation: 0.7s show ease;
+			@keyframes show {
+				from {
+					opacity: 0;
+				}
+				to {
+					opacity: 1;
+				}
+			}
+			@media (max-width: 1024px) {
+				grid-column: auto / span 6;
+			}
+			.brickInfo {
+				display: flex;
+				flex-direction: column;
+				gap: 8px;
+
+				.brickType,
+				.brickTime {
+					@include font14();
+				}
+				.brickTitle {
+					height: 40px;
+					overflow: hidden;
+					display: -webkit-box;
+					-webkit-line-clamp: 2;
+					-webkit-box-orient: vertical;
+					@include font18();
+				}
+			}
+			.brickAdvertising {
+				@include font14();
+			}
+		}
+		.default {
+			img {
+				width: 100%;
+				aspect-ratio: 11/8;
+				margin-bottom: 8px;
+				border-radius: 16px;
+				&:hover {
+					transition: all 0.25s;
+					filter: brightness(50%);
+				}
+			}
+			.brickInfo {
+				.brickType {
+					color: rgb(var(--neutral_red));
+				}
+				.brickTime {
+					color: rgb(var(--grey_30));
+				}
+			}
+		}
+		.advertising {
+			padding: 12px;
+			justify-content: space-between;
+			position: relative;
+			width: 100%;
+			aspect-ratio: 311/343;
+			color: rgb(var(--neutral_white));
+			img {
+				border-radius: 16px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				z-index: 0;
+				&:hover {
+					transition: all 0.25s;
+					filter: brightness(50%);
+				}
+			}
+			.brickInfo {
+				z-index: 1;
+				.brickTitle {
+					@include font18(700);
+				}
+			}
+			.brickAdvertising {
+				z-index: 1;
+			}
+		}
+	}
+}
+
+.show-more-btn {
+	display: flex;
+	flex-direction: row-reverse;
+	@include font16(500, 20px);
+	min-height: fit-content;
+	padding: 0;
+
+	&:hover {
+		color: rgba(var(--color_black), 0.8);
+
+		:deep(svg) {
+			fill: rgba(var(--color_black), 0.8);
+		}
+	}
+}
+.slider-wrapper {
+	width: 100%;
+	.slide {
+		width: 232px;
+		height: 100%;
+		padding: 8px;
+		img {
+			width: 100%;
+			aspect-ratio: 16/9;
+			border-radius: 16px;
+			margin-bottom: 8px;
+		}
+		.sliderInfo {
+			display: flex;
+			flex-direction: column;
+			gap: 8px;
+			.sliderType {
+				@include font14();
+				color: rgb(var(--neutral_red));
+			}
+			.sliderTitle {
+				overflow: hidden;
+				@include font16();
+				display: -webkit-box;
+				-webkit-line-clamp: 2;
+				-webkit-box-orient: vertical;
+			}
+			.sliderTime {
+				@include font12();
+				color: rgb(var(--grey_30));
+			}
+		}
+	}
+}

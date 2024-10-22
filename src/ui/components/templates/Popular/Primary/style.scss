@@ -1,0 +1,35 @@
+@import '../../../../assets/sass/variables/_colors.scss';
+@import '../../../../assets/sass/variables/_mixins.scss';
+
+$root: '.popular';
+#{$root} {
+	background: rgb(var(--neutral_white));
+	border-radius: 16px;
+	padding: 22px;
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+	height: 450px;
+
+	.ui-slider {
+		height: 100%;
+	}
+	:deep(.swiper-slide) {
+		width: 311px;
+	}
+
+	@media (max-width: 768px) {
+		padding: 16px;
+		gap: 16px;
+	}
+
+	@media (max-width: 398px) {
+		height: 282px;
+		padding: 8px;
+		gap: 8px;
+
+		:deep(.slider-action) {
+			display: none;
+		}
+	}
+}

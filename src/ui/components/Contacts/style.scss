@@ -1,0 +1,171 @@
+@import '../../assets/sass/variables/colors';
+@import '../../assets/sass/variables/mixins';
+@import '../../assets/sass/variables/breakpoints';
+
+.contacts {
+	display: grid;
+	grid-template-columns: 41% 59%;
+	gap: 24px;
+	padding: 22px;
+	background: rgb(var(--neutral_white));
+
+	@media (max-width: $laptop) {
+		grid-template-rows: auto auto;
+		grid-template-columns: 100%;
+		gap: 37px;
+	}
+
+	@media (max-width: $tablet) {
+		gap: 16px;
+		padding: 16px;
+	}
+}
+
+.info {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+	border-radius: 16px;
+
+	@media (max-width: $tablet) {
+		gap: 16px;
+	}
+
+	&__acc {
+		transition: background-color 0.8s ease;
+		padding: 0 22px;
+		border-radius: 16px;
+
+		@media (max-width: $tablet) {
+			padding: 0 16px;
+		}
+
+		&_open {
+			background-color: rgb(var(--grey_5));
+			transition: background-color 0.8s ease;
+		}
+	}
+}
+
+.accordion-content {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+	text-align: start;
+	.ui-button-none {
+		padding: 0;
+		color: rgb(var(--neutral_red));
+		:deep(span) {
+			text-align: start;
+		}
+	}
+
+	@media (max-width: $tablet) {
+		gap: 16px;
+	}
+
+	@media (max-width: $mobile) {
+		gap: 8px;
+	}
+
+	&__desc {
+		color: rgb(var(--color_red));
+
+		:deep(span) {
+			text-align: left !important;
+		}
+	}
+
+	&__btns {
+		align-items: flex-start;
+		flex-direction: column;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 12px;
+	}
+}
+
+.communication-methods {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+
+	@media screen and (max-width: $tablet) {
+		gap: 8px;
+	}
+
+	&__row {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		@media screen and (max-width: $tablet) {
+			gap: 10px;
+		}
+	}
+
+	&__title {
+		width: 50%;
+		display: inline-flex;
+		gap: 10px;
+
+		@media screen and (max-width: $mobile) {
+			width: fit-content;
+		}
+	}
+
+	&__desc {
+		font-family: 'VDNHLebedev2', sans-serif;
+
+		@media screen and (max-width: $mobile) {
+			width: fit-content;
+		}
+	}
+}
+
+.best-people {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+
+	h2 {
+		font-family: 'VDNHLebedev2', sans-serif;
+	}
+
+	.card-wrapper {
+		display: grid;
+		gap: 24px;
+		grid-template-columns: repeat(3, 1fr);
+
+		@media (max-width: $tablet-sm) {
+			display: none;
+		}
+
+		&__swiper {
+			display: none;
+
+			@media (max-width: $tablet-sm) {
+				display: flex;
+			}
+		}
+	}
+
+	.card {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+
+		.img {
+			max-width: 300px;
+			height: 250px;
+			margin-bottom: 8px;
+
+			img {
+				width: 100%;
+				height: 100%;
+				border-radius: 16px;
+				object-fit: cover;
+			}
+		}
+	}
+}

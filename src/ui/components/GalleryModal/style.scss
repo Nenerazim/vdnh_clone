@@ -1,0 +1,29 @@
+.modal {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 32px;
+	padding: 22px;
+	border-radius: 16px;
+	background: rgb(var(--neutral_white));
+	iframe,
+	img {
+		border-radius: 16px;
+		width: 100%;
+		aspect-ratio: 16/8;
+	}
+	@media (max-width: 768px) {
+		padding: 16px;
+		gap: 16px;
+	}
+	@media (max-width: 398px) {
+		padding: 8px;
+		gap: 8px;
+	}
+}
+.slider {
+	display: flex;
+	flex-direction: column;
+	gap: 32px;
+}

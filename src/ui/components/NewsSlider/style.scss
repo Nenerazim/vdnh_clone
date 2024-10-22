@@ -1,0 +1,39 @@
+.component-slider {
+	padding: 22px 0;
+	border-radius: 16px;
+	background: rgb(var(--neutral_white));
+	width: 100%;
+	aspect-ratio: 16/9;
+	@media (max-width: 639px) {
+		padding: 16px;
+	}
+	@media (max-width: 396px) {
+		padding: 8px;
+	}
+
+	&.for-one-slide {
+		padding: 22px;
+		@media (max-width: 640px) {
+			padding: 16px;
+		}
+		@media (max-width: 396px) {
+			padding: 8px;
+		}
+	}
+
+	:deep(.slider-action) {
+		&.prev {
+			left: 2px;
+		}
+
+		&.next {
+			right: 2px;
+		}
+	}
+}
+.image {
+	border-radius: 16px;
+	object-fit: cover;
+	height: 100%;
+	width: 100%;
+}

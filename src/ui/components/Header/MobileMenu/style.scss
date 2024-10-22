@@ -1,0 +1,48 @@
+@import '../../../assets/sass/variables/_colors.scss';
+@import '../../../assets/sass/variables/_mixins.scss';
+.mobileMenu {
+	margin: 0 8px;
+	background: rgb(var(--neutral_white));
+	display: flex;
+	padding: 8px;
+	justify-content: center;
+	gap: 24px;
+	border-radius: 16px 16px 0 0;
+	@media (max-width: 500px) {
+		justify-content: space-between;
+		gap: 2px;
+	}
+	@media (max-width: 398px) {
+		margin: 0;
+		border-radius: 0;
+	}
+	.brick {
+		padding: 10px 0;
+		border-radius: 16px;
+		background-color: rgb(var(--grey_5));
+		a {
+			gap: 4px;
+			align-items: center;
+			display: flex;
+			flex-direction: column;
+		}
+	}
+	span {
+		width: 60px;
+		text-align: center;
+		@include font10();
+		color: rgb(var(--grey_30));
+	}
+	.active {
+		background: rgb(var(--neutral_red));
+		.ui-icon {
+			fill: rgb(var(--neutral_white));
+		}
+		span {
+			color: rgb(var(--neutral_white));
+		}
+	}
+	.ui-icon {
+		fill: rgb(var(--neutral_red));
+	}
+}

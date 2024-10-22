@@ -1,0 +1,55 @@
+@import '../../assets/sass/variables/mixins';
+@import '../../assets/sass/variables/colors';
+@import '../../assets/sass/variables/breakpoints';
+@import '../../assets/sass/transitions';
+
+.main {
+	justify-content: flex-start;
+	background: rgb(var(--neutral_white));
+	border-radius: 16px;
+	display: flex;
+	flex-direction: column;
+	padding: 22px;
+	@media (max-width: 768px) {
+		padding: 16px;
+	}
+	h1 {
+		margin-bottom: 24px;
+	}
+	span {
+		@include font18(400);
+		margin-bottom: 16px;
+	}
+	@media (max-width: $tablet-sm) {
+		gap: 12px;
+		padding: 8px 20px;
+	}
+	.info {
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
+	}
+	.text {
+		display: grid;
+		grid-template-columns: repeat(10, 1fr);
+		@include font18(400, 26px);
+		font-family: 'Suisse Intl', sans-serif;
+		.day {
+			@include font18(700);
+			grid-column: auto / span 2;
+			@media (max-width: 950px) {
+				grid-column: auto / span 4;
+			}
+		}
+		.time {
+			@include font18(40);
+			grid-column: auto / span 2;
+			@media (max-width: 950px) {
+				grid-column: auto / span 4;
+			}
+		}
+		@media (max-width: $tablet-sm) {
+			@include font16(400, 23px);
+		}
+	}
+}
